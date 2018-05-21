@@ -35,7 +35,7 @@ export default class Register extends React.Component<Types.RegisterProps, Types
     // tslint:disable-next-line:member-ordering
     render() {
         return (
-            <h1> Register </h1>
+            <h1> Ania </h1>
         );
     }
 }
