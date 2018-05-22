@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export namespace Types {
     export type InputProps = {
-        label: any;
+        label?: any;
         type: any;
         id: any;
         name: any;
