@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Input from './Input';
 // import * as DebtConnector from './../Connectors/DebtConnector';
+import UserStore from './../Stores/UserStore';
 
 export namespace Types {
     export type RegisterProps = {
@@ -45,6 +46,7 @@ export default class Register extends React.Component<Types.RegisterProps, Types
             password: form.get('password'),
             passwordConfirmation: form.get('passwordConfirmation')
         };
+        UserStore.validationRegister(loginData);
         console.log(loginData);
     }
 

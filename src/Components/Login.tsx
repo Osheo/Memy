@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Input from './Input';
 import * as UserConnector from './../Connectors/UserConnector';
+import UserStore from './../Stores/UserStore';
 
 export namespace Types {
     export type LoginProps = {
@@ -20,14 +21,15 @@ export default class Login extends React.Component<Types.LoginProps, Types.Login
             users: []
         };
 
-        this.checkoutLogin = this.checkoutLogin.bind(this);
+        // this.validationLogin = this.validationLogin.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     public async componentDidMount() {
         try {
             const users = await UserConnector.getAllUsers();
-            console.log(users);
+            console.log(users[2].email);
+            console.log(users[2].password);
             this.setState({
                 render: true,
                 users
@@ -44,13 +46,13 @@ export default class Login extends React.Component<Types.LoginProps, Types.Login
             email: form.get('email'),
             password: form.get('password')
         };
-        console.log('mati');
-        this.checkoutLogin(loginData);
+
+        UserStore.validationLogin(loginData);
     }
 
-    public checkoutLogin(data: any) {
-        console.log(data);
-    }
+    // mati = localStorage.getItem('loggedUserData');
+    // mativ2;
+    // mativ2 = JSON.parse(mati);
 
     public render() {
         return (
