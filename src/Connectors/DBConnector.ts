@@ -15,19 +15,19 @@ export async function createDateToDatabase() {
         items: {
             type: 'object',
             properties: {
-                // id: {
-                //     type: 'integer',
-                //     // // from: 0,
-                //     minimum: 1,
-                //     maximum: 15,
-                //     // unique: true,
-                //     // autoIncrement: true,
-                //     uniqueItems: true,
-                //     exclusiveMinimum: true
-                //     // autoIncrement: true,
-                //     // minimum: 1,
-                //     // maximum: 20
-                // },
+                id: {
+                    type: 'integer',
+                    // // from: 0,
+                    minimum: 1,
+                    maximum: 15,
+                    // unique: true,
+                    // autoIncrement: true,
+                    uniqueItems: true,
+                    exclusiveMinimum: true
+                    // autoIncrement: true,
+                    // minimum: 1,
+                    // maximum: 20
+                },
                 firstName: {
                     type: 'string',
                     faker: 'name.findName'

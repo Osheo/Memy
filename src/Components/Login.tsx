@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import * as UserConnector from './../Connectors/UserConnector';
+import * as UserConnector from './../Connectors/UserConnector';
 
 export namespace Types {
     export type LoginProps = {
@@ -7,6 +7,7 @@ export namespace Types {
     };
     export type LoginState = {
         render: boolean;
+        users: Array<any>;
     };
 }
 
@@ -14,34 +15,35 @@ export default class Login extends React.Component<Types.LoginProps, Types.Login
     constructor(props: Types.LoginProps) {
         super(props);
         this.state = {
-            render: false
+            render: false,
+            users: []
         };
     }
 
-    // public async componentDidMount() {
-    //     try {
-    //         const users = await UserConnector.getAllUsers();
-    //         console.log(users)
-    //         this.setState({
-    //             render: true,
-    //             users
-    //         });
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
+    public async componentDidMount() {
+        try {
+            const users = await UserConnector.getAllUsers();
+            console.log(users);
+            this.setState({
+                render: true,
+                users
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     public render() {
         return (
-            <div className="container">
-                <div className="login-form">
-                    <div className="form-group mx-sm-3 mb-2">
-                        <label>Email address</label>
-                        <input type="email" className="form-control" placeholder="Enter email" />
-                    </div>
-                </div>
-            </div>
-            // <h1> 332</h1>
+            // <div className="container">
+            //     <div className="login-form">
+            //         <div className="form-group mx-sm-3 mb-2">
+            //             <label>Email address</label>
+            //             <input type="email" className="form-control" placeholder="Enter email" />
+            //         </div>
+            //     </div>
+            // </div>
+            <h1> 332</h1>
         );
         // {/* // <div className="table-responsive">
         // //     <h3 className="text-center py-3">Użytkownicy systemu</h3>

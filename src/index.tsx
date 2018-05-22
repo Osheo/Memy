@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './Components/Globals/Layout';
 import Login from './Components/Login';
 import Register from './Components/Register';
+import MemsAddition from './Components/MemsAddition';
 
 ReactDOM.render(
     <Router>
@@ -13,6 +14,7 @@ ReactDOM.render(
                 <Route path="/" exact component={Login} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/register" exact component={Register} />
+                <Route path="/memsAddition" exact component={MemsAddition} />
             </Layout>
         </Switch>
     </Router>,

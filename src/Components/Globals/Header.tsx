@@ -32,6 +32,11 @@ export default class Header extends React.Component<Types.HeaderProps, Types.Hea
                                 Rejestracja
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to={`/memsaddition`}>
+                                Dodaj mema
+                            </Link>
+                        </li>
                         {/* <li className="nav-item">
                             <a
                                 className="nav-link"

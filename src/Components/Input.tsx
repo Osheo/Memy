@@ -2,11 +2,11 @@ import * as React from 'react';
 
 export namespace Types {
     export type InputProps = {
-        label: any;
-        type: any;
-        id: any;
-        name: any;
-        placeholder: string;
+        label?: any;
+        type?: any;
+        id?: any;
+        name?: any;
+        placeholder?: string;
     };
     export type InputState = {
         //
