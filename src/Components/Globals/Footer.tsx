@@ -13,15 +13,25 @@ export default class Footer extends React.Component<Types.FooterProps, Types.Foo
   constructor(props: Types.FooterProps) {
     super(props);
     this.state = {
-        // 
+      // ś
     };
   }
 
-  render() {
+  public async componentDidMount() {
+    try {
+
+      console.log('mati')
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  public render() {
     return (
-        <div className="footer">
-            <h2>copyright 2018.</h2>
-        </div>
+      <div className="footer">
+        <h2>copyright 2018.</h2>
+      </div>
     );
   }
 }

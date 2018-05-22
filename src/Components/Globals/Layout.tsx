@@ -16,33 +16,33 @@ export default class Layout extends React.Component<Types.LayoutProps, Types.Lay
   constructor(props: Types.LayoutProps) {
     super(props);
     this.state = {
-        render: false
+      render: false
     };
   }
 
-//   public async componentDidMount() {
-//     try {
-//         const currentUser = await UserConnector.getUserById(0);
-//         this.setState({
-//             render: true,
-//             currentUser
-//         });
-//     } catch (err) {
-//         console.log(err);
-//     }
-// }
+  //   public async componentDidMount() {
+  //     try {
+  //         const currentUser = await UserConnector.getUserById(0);
+  //         this.setState({
+  //             render: true,
+  //             currentUser
+  //         });
+  //     } catch (err) {
+  //         console.log(err);
+  //     }
+  // }
 
-  render() {
+  public render() {
     // if(this.state.render) {
-        return (
-            <div className="system-wrapper">
-                <Header />
-                <div className="container">
-                    {this.props.children}
-                </div>
-                <Footer />
-            </div>
-        )
+    return (
+      <div className="system-wrapper">
+        <Header />
+        <div className="container">
+          {this.props.children}
+        </div>
+        <Footer />
+      </div>
+    )
     // } else {
     //     return (
     //         <h1>Ładowanie danych...</h1>

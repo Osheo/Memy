@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export namespace Types {
     export type HeaderProps = {
-       
+
     };
     export type HeaderState = {
         //
@@ -19,7 +19,7 @@ export default class Header extends React.Component<Types.HeaderProps, Types.Hea
         };
     }
 
-    render() {
+    public render() {
         return (
             <nav className="navbar navbar-expand-sm navbar-light bg-light">
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">

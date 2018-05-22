@@ -13,11 +13,11 @@ export default class Sample extends React.Component<Types.SampleProps, Types.Sam
   constructor(props: Types.SampleProps) {
     super(props);
     this.state = {
-        // 
+      // 
     };
   }
 
-  render() {
+  public render() {
     return (
       <h2>Sample component</h2>
     );
