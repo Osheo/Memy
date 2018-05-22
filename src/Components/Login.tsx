@@ -1,7 +1,6 @@
 import * as React from 'react';
 // import * as UserConnector from './../Connectors/UserConnector';
 
-
 export namespace Types {
     export type LoginProps = {
         //
@@ -15,7 +14,7 @@ export default class Login extends React.Component<Types.LoginProps, Types.Login
     constructor(props: Types.LoginProps) {
         super(props);
         this.state = {
-            render: false,
+            render: false
         };
     }
 
@@ -37,13 +36,12 @@ export default class Login extends React.Component<Types.LoginProps, Types.Login
             <div className="container">
                 <div className="login-form">
                     <div className="form-group mx-sm-3 mb-2">
-                        <label >Email address</label>
+                        <label>Email address</label>
                         <input type="email" className="form-control" placeholder="Enter email" />
                     </div>
                 </div>
             </div>
             // <h1> 332</h1>
-
         );
         // {/* // <div className="table-responsive">
         // //     <h3 className="text-center py-3">Użytkownicy systemu</h3>
