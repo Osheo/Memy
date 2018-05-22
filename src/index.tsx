@@ -11,7 +11,7 @@ ReactDOM.render(
     <Router>
         <Switch>
             <Layout>
-                <Route path="/" exact component={Login} />
+                <Route path="/" exact component={MemsAddition} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/register" exact component={Register} />
                 <Route path="/memsAddition" exact component={MemsAddition} />
