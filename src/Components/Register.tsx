@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Input from './Input';
 // import * as DebtConnector from './../Connectors/DebtConnector';
 
 export namespace Types {
@@ -6,7 +7,7 @@ export namespace Types {
         //
     };
     export type RegisterState = {
-        render: boolean
+        render: boolean;
     };
 }
 
@@ -31,11 +32,22 @@ export default class Register extends React.Component<Types.RegisterProps, Types
     //     }
     // }
 
-
     // tslint:disable-next-line:member-ordering
+
     render() {
         return (
-            <h1> Ania </h1>
+            <div>
+                <form>
+                    <Input label="Login" type="email" id="email" name="email" placeholder="Wpisz email" />
+                    <Input label="Imię" type="name" id="name" name="name" placeholder="Wpisz imię" />
+                    <Input label="Nazwisko" type="surname" id="surname" name="surname" placeholder="Wpisz nazwisko" />
+                    <Input label="Hasło" type="password" id="password" name="password" placeholder="Wpisz hasło" />
+                    <Input label="Potwierdź hasło" type="password" id="password" name="password" placeholder="Wpisz hasło" />
+                    <button type="submit" className="btn btn-primary">
+                        Log In
+                    </button>
+                </form>
+            </div>
         );
     }
 }

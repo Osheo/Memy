@@ -3,9 +3,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 export namespace Types {
-    export type HeaderProps = {
-       
-    };
+    export type HeaderProps = {};
     export type HeaderState = {
         //
     };
@@ -26,12 +24,12 @@ export default class Header extends React.Component<Types.HeaderProps, Types.Hea
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
                             <Link className="nav-link" to={`/login`}>
-                                Lista użytkowników
+                                Logowanie
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to={`/register`}>
-                                Lista długów
+                                Rejestracja
                             </Link>
                         </li>
                         {/* <li className="nav-item">

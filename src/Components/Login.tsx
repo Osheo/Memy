@@ -73,7 +73,7 @@ export default class Login extends React.Component<Types.LoginProps, Types.Login
             //     </table>
             // </div>
 
-            <h1> Ania memy </h1>
+            <h1 className="ania"> Ania memy </h1>
         );
     }
 }
