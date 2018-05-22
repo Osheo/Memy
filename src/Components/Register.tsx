@@ -36,17 +36,19 @@ export default class Register extends React.Component<Types.RegisterProps, Types
 
     public render() {
         return (
-            <div>
+            <div className="registrationForm">
                 <form>
                     <Input label="Login" type="email" id="email" name="email" placeholder="Wpisz email" />
                     <Input label="Imię" type="name" id="name" name="name" placeholder="Wpisz imię" />
                     <Input label="Nazwisko" type="surname" id="surname" name="surname" placeholder="Wpisz nazwisko" />
                     <Input label="Hasło" type="password" id="password" name="password" placeholder="Wpisz hasło" />
-                    <Input label="Potwierdź hasło" type="password" id="password" name="password" placeholder="Wpisz hasło" />
-                    <button type="submit" className="btn btn-primary">
-                        Log In
-                    </button>
+                    <Input label="Potwierdź hasło" type="password" id="password" name="password" placeholder="Powtórz hasło" />
                 </form>
+                <div className="registrationButton">
+                    <button type="submit" className="btn btn-primary acceptFormButton">
+                        Zarejestruj
+                    </button>
+                </div>
             </div>
         );
     }
