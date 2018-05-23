@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Input from './Input';
-import * as UserConnector from './../Connectors/UserConnector';
+// import * as UserConnector from './../Connectors/UserConnector';
 import UserStore from './../Stores/UserStore';
 
 export namespace Types {
@@ -26,17 +26,25 @@ export default class Login extends React.Component<Types.LoginProps, Types.Login
     }
 
     public async componentDidMount() {
-        try {
-            const users = await UserConnector.getAllUsers();
-            console.log(users[2].email);
-            console.log(users[2].password);
-            this.setState({
-                render: true,
-                users
-            });
-        } catch (err) {
-            console.log(err);
-        }
+        // try {
+        // const users = await UserConnector.getAllUsers();
+        // const data = [
+        //     {
+        //         email: 'mati@gmail.pl',
+        //         password: '1234'
+        //     }
+        // ];
+        // if (localStorage.getItem('userList') !== null) {
+        //     localStorage.setItem('userList', JSON.stringify(data));
+        // }
+        // console.log('mati');
+        this.setState({
+            render: true
+            // users
+        });
+        // } catch (err) {
+        //     console.log(err);
+        // }
     }
 
     public handleSubmit(event: any) {

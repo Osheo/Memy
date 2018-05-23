@@ -54,7 +54,7 @@ export default class Header extends React.Component<Types.HeaderProps, Types.Hea
                                 </Link>
                             </li>
                         </ul>
-                    )};
+                    )}
                     {/* <li className="nav-item">
                             <Link className="nav-link" to={`/memsaddition`}>
                                 Dodaj mema
