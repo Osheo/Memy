@@ -29,6 +29,29 @@ class UserStore {
             toast.error('Uzupełnij dane');
         }
     }
+
+    public validationRegister(data: any) {
+        if (data.email !== '' && data.password !== '' && data.passwordConfirmation !== '' && data.password === data.passwordConfirmation) {
+            let userExist: boolean = false;
+            for (var i = 0; i < this.usersList.length; i++) {
+                if (this.usersList[i].email === data.email) {
+                    userExist = true;
+                }
+            }
+            if (userExist) {
+                toast.error('Podany użytkownik już istnieje');
+                return;
+            } else {
+                localStorage.setItem('loggedUserData', JSON.stringify(data));
+                this.loggedUser = true;
+                toast.success('Zalogowano pomyślnie');
+                return;
+            }
+        } else {
+            toast.error('Popraw dane');
+        }
+    }
+
     @action
     public logout() {
         localStorage.clear();
