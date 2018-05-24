@@ -42,12 +42,24 @@
     margin-left: auto;
   }
 
-  .registrationForm {
+  .loginContainerForm {
     margin-top: 100px;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 340px;
+    height: 280px;
     background-color: rgb(221, 213, 201);
-    padding: 50px 50px 1rem 50px;
+    border-radius: 5px;
+    opacity: 0.9
+  }
+
+  .registerContainerForm {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 340px;
+    height: 520px;
+    background-color: rgb(221, 213, 201);
     border-radius: 5px;
     opacity: 0.9
   }
@@ -61,6 +73,8 @@
     width: 500px;
     margin-left: auto;
     margin-right: auto;
+    background-color: blue;
+    margin-bottom: 40px;
   }
 
 
@@ -74,6 +88,39 @@
     margin-right: auto;
   }
 
+  .loginForm {
+    height: 260px;
+    width: 290px;
+    padding-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .registerForm {
+    width: 290px;
+    padding-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* MEDIA QUIERIES */
+
+  @media only screen and (max-width: 430px) {
+    .loginContainerForm {
+      width: 310px;
+    }
+    .loginForm {
+      height: 260px;
+      width: 270px;
+      padding-top: 40px;
+    }
+    .registerContainerForm {
+      width: 300px !important;
+    }
+    .registerForm {
+      width: 260px;
+    }
+  }
 
   .Toastify__toast-container {
     z-index: 9999;
@@ -643,6 +690,8 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div id="root"></div>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script> -->
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

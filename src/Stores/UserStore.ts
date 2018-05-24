@@ -15,7 +15,7 @@ class UserStore {
 
     public validationLogin(data: any) {
         if (data.email !== '' && data.password !== '') {
-            console.log(this.usersList[1].email);
+            // console.log(this.usersList[1].email);
             for (var i = 0; i < this.usersList.length; i++) {
                 if (this.usersList[i].email === data.email && this.usersList[i].password === data.password) {
                     localStorage.setItem('loggedUserData', JSON.stringify(data));

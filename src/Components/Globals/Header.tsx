@@ -65,23 +65,6 @@ export default class Header extends React.Component<Types.HeaderProps, Types.Hea
                             </li>
                         </ul>
                     )}
-                    {/* <li className="nav-item">
-                            <Link className="nav-link" to={`/memsaddition`}>
-                                Dodaj mema
-                            </Link>
-                        </li>
-                        <li>{this.state.loggedUser.email} </li> */}
-                    {/* <li className="nav-item">
-                            <a
-                                className="nav-link"
-                                onClick={e => {
-                                    e.preventDefault();
-                                    FirebaseConnector.createDateToDatabase();
-                                }}
-                            >
-                                Wgraj nowe dane
-                            </a>
-                        </li> */}
                 </div>
             </nav>
         );
