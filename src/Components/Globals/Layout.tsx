@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import Header from './Header';
 import Login from './../Login';
 import Register from './../Register';
+import Homepage from './../Homepage';
 // import Footer from './Footer';
 
 export namespace Types {
@@ -44,7 +45,7 @@ export default class Layout extends React.Component<Types.LayoutProps, Types.Lay
                 <div className="system-wrapper">
                     <ToastContainer autoClose={5000} />
                     <Header />
-                    <div className="container">{UserStore.loggedUser ? this.props.children : location.pathname === '/register' ? <Register /> : <Login />}</div>
+                    <div className="container">{UserStore.loggedUser ? this.props.children : location.pathname === '/homepage' ? <Homepage /> : location.pathname === '/register' ? <Register /> : <Login />} </div>
                     {/* <Footer /> */}
                 </div>
             );

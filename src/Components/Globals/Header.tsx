@@ -26,6 +26,11 @@ export default class Header extends React.Component<Types.HeaderProps, Types.Hea
                     {UserStore.loggedUser ? (
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
+                                <Link className="nav-link" to={`/homepage`}>
+                                    Strona główna
+                                </Link>
+                            </li>
+                            <li className="nav-item">
                                 <Link className="nav-link" to={`/memsaddition`}>
                                     Dodaj mema
                                 </Link>
@@ -44,6 +49,11 @@ export default class Header extends React.Component<Types.HeaderProps, Types.Hea
                     ) : (
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
+                                <Link className="nav-link" to={`/homepage`}>
+                                    Strona główna
+                                </Link>
+                            </li>
+                            <li>
                                 <Link className="nav-link" to={`/login`}>
                                     Zaloguj
                                 </Link>
