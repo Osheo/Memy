@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Input from './Input';
+import UserStore from './../Stores/UserStore';
 // import logo from './Eclipse-1s-100px.svg';
 
 export namespace Types {
@@ -35,8 +36,11 @@ export default class MemsAddition extends React.Component<Types.MemsAdditionProp
     public handleSubmit(event: any) {
         event.preventDefault();
         const form = new FormData(event.target);
+        const currentTime = new Date().toLocaleDateString();
         const memData = {
             title: form.get('title'),
+            author: UserStore.user.email,
+            time: currentTime,
             tags: [
                 {
                     tag: form.get('tag')
@@ -53,6 +57,8 @@ export default class MemsAddition extends React.Component<Types.MemsAdditionProp
             const memArrayData = [
                 {
                     title: memData.title,
+                    author: UserStore.user.email,
+                    time: currentTime,
                     tags: memData.tags
                 }
             ];
