@@ -64,14 +64,16 @@ export default class Login extends React.Component<Types.LoginProps, Types.Login
 
     public render() {
         return (
-            <div className="registrationForm">
-                <form onSubmit={this.handleSubmit}>
+            <div className="loginContainerForm">
+                {/* <div className="row"> */}
+                <form className="loginForm" onSubmit={this.handleSubmit}>
                     <Input label="Email" type="email" id="email" name="email" placeholder="Wpisz email" />
                     <Input label="Hasło" type="password" id="password" name="password" placeholder="Wpisz hasło" />
                     <button type="submit" className="btn btn-primary acceptFormButton">
                         Zaloguj
                     </button>
                 </form>
+                {/* </div> */}
             </div>
         );
     }

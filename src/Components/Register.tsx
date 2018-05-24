@@ -52,8 +52,8 @@ export default class Register extends React.Component<Types.RegisterProps, Types
 
     public render() {
         return (
-            <div className="registrationForm">
-                <form onSubmit={this.handleSubmit}>
+            <div className="registerContainerForm">
+                <form className="registerForm" onSubmit={this.handleSubmit}>
                     <Input label="Login" type="email" id="email" name="email" placeholder="Wpisz email" />
                     <Input label="Imię" type="name" id="name" name="name" placeholder="Wpisz imię" />
                     <Input label="Nazwisko" type="surname" id="surname" name="surname" placeholder="Wpisz nazwisko" />
