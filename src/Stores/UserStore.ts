@@ -49,6 +49,7 @@ class UserStore {
                 parsedData.push(data);
                 localStorage.setItem('userList', JSON.stringify(parsedData));
                 console.log('dodano do local');
+                this.user = data;
                 this.loggedUser = true;
                 toast.success('Zalogowano pomyślnie');
                 return;

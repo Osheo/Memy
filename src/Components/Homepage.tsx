@@ -1,4 +1,6 @@
 import * as React from 'react';
+// import UserStore from './../Stores/UserStore';
+// import { toast } from 'react-toastify';
 
 export namespace Types {
     export type HomepageProps = {
@@ -15,6 +17,7 @@ export default class Homepage extends React.Component<Types.HomepageProps, Types
         this.state = {
             memsList: []
         };
+        this.addLike = this.addLike.bind(this);
     }
 
     public async componentDidMount() {
@@ -26,55 +29,98 @@ export default class Homepage extends React.Component<Types.HomepageProps, Types
         console.log(this.state.memsList);
     }
 
+    public addLike(id: any) {
+        // if (this.state.memsList[id].likes.author.lenght !== undefined) {
+        //     for (let i = 0; i < this.state.memsList[id].likes.author.lenght; i++) {
+        //         if (this.state.memsList[id].likes.author[i] === UserStore.user.email) {
+        //             toast.warn('Już polajkowałeś mema!');
+        //         } else {
+        //             this.state.memsList[id].likes.author.push(UserStore.user.email);
+        //         }
+        //     }
+        // } else {
+        //     this.state.memsList[id].likes.author.push(UserStore.user.email);
+        //     console.log('DODANO AUTORA');
+        // }
+
+        this.state.memsList[id].likes = {
+            count: this.state.memsList[id].likes.count + 1
+        };
+        this.setState({
+            memsList: this.state.memsList
+        });
+
+        localStorage.setItem('memList', JSON.stringify(this.state.memsList));
+        console.log('dodano like');
+    }
+
     public render() {
-        return (
-            <div className="memContainer">
-                {this.state.memsList.map((mem: any, idx: number) => {
-                    return (
-                        <div key={idx} className="card text-center mems-addition-container">
-                            <div className="card-header">{mem.title}</div>
-                            <div> Autor i data dodania </div>
-                            <div className="card-body">
-                                <div className="memPhotoContainer"> Miejsce na zdjęcie </div>
-                                Tagi:
-                                {this.state.memsList[idx].tags.map((tag: any, id: number) => {
-                                    return <p key={id}>{tag.tag}</p>;
-                                })}
-                                <div> Łapka w górę | Łapka w dół | Skomentuj </div>
+        if (this.state.memsList !== null) {
+            return (
+                <div className="memContainer">
+                    {this.state.memsList.map((mem: any, idx: number) => {
+                        return (
+                            <div key={idx} className="card text-center mems-addition-container">
+                                <div className="card-header">{mem.title}</div>
+                                <div className="authorTime">
+                                    {mem.author} | {mem.time}
+                                </div>
+                                <div className="card-body">
+                                    <div className="memPhotoContainer"> Miejsce na zdjęcie </div>
+                                    Tagi:{' '}
+                                    {this.state.memsList[idx].tags.map((tag: any, id: number) => {
+                                        return <span key={id}> {tag.tag} | </span>;
+                                    })}
+                                    <div>
+                                        <button type="button" onClick={() => this.addLike(idx)} className="btn btn-success">
+                                            <i className="fas fa-thumbs-up" /> {mem.likes.count}
+                                        </button>
+                                        {'  '}
+                                        <button type="button" className="btn btn-danger">
+                                            <i className="fas fa-thumbs-down" /> {'45'}
+                                        </button>
+                                        {'  '}
+                                        <button type="button" className="btn btn-primary">
+                                            <i className="fas fa-comment-alt" /> Skomentuj
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
-                <nav aria-label="Page navigation example" className="memPagination">
-                    <ul className="pagination justify-content-center">
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                Poprzednia
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                1
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                2
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                3
-                            </a>
-                        </li>
-                        <li className="page-item">
-                            <a className="page-link" href="#">
-                                Następna
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        );
+                        );
+                    })}
+                    <nav aria-label="Page navigation example" className="memPagination">
+                        <ul className="pagination justify-content-center">
+                            <li className="page-item">
+                                <a className="page-link" href="#">
+                                    Poprzednia
+                                </a>
+                            </li>
+                            <li className="page-item">
+                                <a className="page-link" href="#">
+                                    1
+                                </a>
+                            </li>
+                            <li className="page-item">
+                                <a className="page-link" href="#">
+                                    2
+                                </a>
+                            </li>
+                            <li className="page-item">
+                                <a className="page-link" href="#">
+                                    3
+                                </a>
+                            </li>
+                            <li className="page-item">
+                                <a className="page-link" href="#">
+                                    Następna
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            );
+        } else {
+            return <h1> Brak memów do wyświetlenia </h1>;
+        }
     }
 }
