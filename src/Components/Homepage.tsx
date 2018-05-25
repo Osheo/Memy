@@ -18,6 +18,7 @@ export default class Homepage extends React.Component<Types.HomepageProps, Types
             memsList: []
         };
         this.addLike = this.addLike.bind(this);
+        this.addDislike = this.addDislike.bind(this);
     }
 
     public async componentDidMount() {
@@ -54,6 +55,18 @@ export default class Homepage extends React.Component<Types.HomepageProps, Types
         console.log('dodano like');
     }
 
+    public addDislike(id: any) {
+        this.state.memsList[id].dislikes = {
+            count: this.state.memsList[id].dislikes.count + 1
+        };
+        this.setState({
+            memsList: this.state.memsList
+        });
+
+        localStorage.setItem('memList', JSON.stringify(this.state.memsList));
+        console.log('dodano like');
+    }
+
     public render() {
         if (this.state.memsList !== null) {
             return (
@@ -67,7 +80,7 @@ export default class Homepage extends React.Component<Types.HomepageProps, Types
                                 </div>
                                 <div className="card-body">
                                     <div className="memPhotoContainer"> Miejsce na zdjęcie </div>
-                                    Tagi:{' '}
+                                    Tagi:
                                     {this.state.memsList[idx].tags.map((tag: any, id: number) => {
                                         return <span key={id}> {tag.tag} | </span>;
                                     })}
@@ -75,12 +88,12 @@ export default class Homepage extends React.Component<Types.HomepageProps, Types
                                         <button type="button" onClick={() => this.addLike(idx)} className="btn btn-success">
                                             <i className="fas fa-thumbs-up" /> {mem.likes.count}
                                         </button>
-                                        {'  '}
-                                        <button type="button" className="btn btn-danger">
-                                            <i className="fas fa-thumbs-down" /> {'45'}
+
+                                        <button type="button" onClick={() => this.addDislike(idx)} className="btn btn-danger space">
+                                            <i className="fas fa-thumbs-down" /> {mem.dislikes.count}
                                         </button>
-                                        {'  '}
-                                        <button type="button" className="btn btn-primary">
+
+                                        <button type="button" className="btn btn-primary space">
                                             <i className="fas fa-comment-alt" /> Skomentuj
                                         </button>
                                     </div>

@@ -10,6 +10,7 @@ export namespace Types {
     };
     export type MemsAdditionState = {
         image: any;
+        tags: Array<any>;
     };
 }
 
@@ -17,10 +18,12 @@ export default class MemsAddition extends React.Component<Types.MemsAdditionProp
     constructor(props: Types.MemsAdditionProps) {
         super(props);
         this.state = {
-            image: null
+            image: null,
+            tags: []
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.addNewTag = this.addNewTag.bind(this);
     }
 
     public onImageChange(event: any) {
@@ -32,6 +35,19 @@ export default class MemsAddition extends React.Component<Types.MemsAdditionProp
                 // image: img
             });
         }
+    }
+
+    public addNewTag(event: any) {
+        event.preventDefault();
+        const form = new FormData(event.target);
+        const newTag = {
+            tag: form.get('tag')
+        };
+        this.state.tags.push(newTag);
+        this.setState({
+            tags: this.state.tags
+        });
+        console.log(this.state.tags);
     }
 
     public handleSubmit(event: any) {
@@ -46,17 +62,11 @@ export default class MemsAddition extends React.Component<Types.MemsAdditionProp
                 count: 0,
                 author: []
             },
-            tags: [
-                {
-                    tag: form.get('tag')
-                },
-                {
-                    tag: form.get('tag1')
-                },
-                {
-                    tag: form.get('tag2')
-                }
-            ]
+            dislikes: {
+                count: 0,
+                author: []
+            },
+            tags: this.state.tags
         };
         if (localStorage.getItem('memList') === null) {
             const memArrayData = [
@@ -68,11 +78,16 @@ export default class MemsAddition extends React.Component<Types.MemsAdditionProp
                         count: 0,
                         author: []
                     },
-                    tags: memData.tags
+                    dislikes: {
+                        count: 0,
+                        author: []
+                    },
+                    tags: this.state.tags
                 }
             ];
             localStorage.setItem('memList', JSON.stringify(memArrayData));
             console.log(memArrayData);
+            toast.success('Dodano mema');
         } else {
             const memDataList: any = localStorage.getItem('memList');
             const parsed = JSON.parse(memDataList);
@@ -87,23 +102,34 @@ export default class MemsAddition extends React.Component<Types.MemsAdditionProp
             <div className="card text-center mems-addition-container">
                 <div className="card-header">Dodaj mema</div>
                 <div className="card-body">
+                    <label>Wybierz zdjęcie</label>
+                    <div id="file-input">
+                        <input type="file" onChange={this.onImageChange} className="form-control-file" id="exampleFormControlFile1" />
+                    </div>
+                    <form onSubmit={this.addNewTag}>
+                        <Input label="Podaj tagi" name="tag" placeholder="Tag" />
+                        <button className="btn btn-primary">Dodaj tag </button>
+                    </form>
+                    {this.state.tags !== null ? (
+                        <span>
+                            {this.state.tags.map((tag: any, idx: number) => {
+                                return <span key={idx}> {tag.tag} |</span>;
+                            })};{' '}
+                        </span>
+                    ) : (
+                        <div> ela</div>
+                    )}
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <label>Wybierz zdjęcie</label>
-                            <div id="file-input">
-                                <input type="file" onChange={this.onImageChange} className="form-control-file" id="exampleFormControlFile1" />
-                            </div>
                             <hr />
                             <Input label="Podaj tytuł" name="title" placeholder="Tytuł" />
-                            <Input label="Podaj tagi" name="tag" placeholder="Tag" />
-                            <Input name="tag1" placeholder="Tag" />
-                            <Input name="tag2" placeholder="Tag" />
                         </div>
+
+                        <hr />
                         <button className="btn btn-primary acceptFormButton">Dodaj mema</button>
                     </form>
                     {/* <img src="http://www.pngmart.com/files/3/Vector-PNG-File.png" height="42" width="42" /> */}
                 </div>
-                {/* <div className="card-footer text-muted">2 days ago</div> */}
             </div>
         );
     }
